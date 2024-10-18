@@ -1,0 +1,67 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+      <h1 class="text-center">{{ edit ? 'Edit Ticket' : 'Add New Ticket' }}</h1><br />
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row g-3">
+          <!-- Description -->
+          <div class="col-12">
+            <label for="desc" class="form-label">Description of the Ticket</label>
+            <textarea formControlName="description" class="form-control" id="desc" name="description" rows="5" required></textarea>
+            @if (form.controls['description'].errors && form.controls['description'].touched) {
+              <span style="color: rgb(225, 74, 74); font-weight: 300;">Description is required !</span>
+            }
+          </div>
+
+          <!-- Status OPEN | CLOSED -->
+          <div class="col-12">
+            <label for="status" class="form-label">Status</label>
+            <select formControlName="status" class="form-select">
+              <option value="" disabled selected>Status?</option>
+              <option value="0" style="color: rgb(49, 199, 49); font-weight: 700;">Open</option>
+              <option value="1" style="color: rgb(215, 70, 33); font-weight: 700;">Closed</option>
+            </select>
+            @if (form.controls['status'].errors && form.controls['description'].touched) {
+              <span style="color: rgb(225, 74, 74); font-weight: 300;">Status is required !</span>
+            }
+          </div>
+
+          <!-- Date -->
+          <div class="col-12">
+            <label for="date" class="form-label">Date of Creation</label>
+            <div class="input-group">
+              <input
+                formControlName="date"
+                class="form-control"
+                placeholder="yyyy-mm-dd"
+                name="date"
+                type="date"
+                ngbDatepicker
+                #d="ngbDatepicker"
+              />
+              <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">📅</button>
+            </div>
+            @if (form.controls['date'].errors && form.controls['description'].touched) {
+              <span style="color: rgb(225, 74, 74); font-weight: 300;">Date is required !</span>
+            }
+          </div>
+
+          <div class="col-6">
+            <div class="row">
+              <div class="col-md-6">
+                <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-sm w-100 fw-bold">{{ edit ? 'Edit Ticket' : 'Add Ticket' }}</button>
+              </div>
+              <div class="col-md-6">
+                <a [routerLink]="'/tickets'" class="btn btn-secondary btn-sm w-100 fw-bold">Return back</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <hr />
+        <pre>Form : {{ form.value | json }}</pre>
+      </form>
+    </div>
+  </div>
+</div>

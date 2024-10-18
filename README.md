@@ -1,14 +1,42 @@
-# FrontendManagementSystem
+# Frontend - Angular 17 CRUD Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.
+## Prerequisites
+- Node.js and npm installed
+- Angular CLI installed
+
+## Setup Instructions
+
+### Step 1: Clone the Repository
+`git clone [your-repo-url]`
+`cd [your-frontend-folder]`
+
+## Step 2: Install Dependencies
+`npm install`
+
+## Step 3: Run the Application
+`ng serve -o`
+- The application will be served at http://localhost:4200 by default.
+
+## Step 4: Configure Bootstrap
+To use Bootstrap, Datatables, sweetalert2, ensure that the styles section in your angular.json file includes the paths like above:
+
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "src/styles.css",
+  "node_modules/datatables.net-bs5/css/dataTables.bootstrap5.min.css",
+  "node_modules/sweetalert2/src/sweetalert2.scss"
+],
+"scripts": [
+  "node_modules/bootstrap/dist/js/bootstrap.min.js",
+  "node_modules/jquery/dist/jquery.min.js",
+  "node_modules/datatables.net/js/dataTables.min.js",
+  "node_modules/datatables.net-bs5/js/dataTables.bootstrap5.min.js"
+]
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
@@ -18,10 +46,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
